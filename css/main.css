@@ -1,0 +1,181 @@
+:root,
+[data-bs-theme="light"] {
+  --bs-bg-over: #fffc, #fffc;
+}
+
+:root,
+[data-bs-theme="dark"] {
+  --bs-bg-over: #000c, #000c;
+}
+
+@font-face {
+  font-family: "Shabnam";
+  src: url(../font/Shabnam/Shabnam.ttf);
+}
+
+* {
+  font-family: Shabnam;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.height-300 {
+  height: 300px;
+}
+
+.sticky-cu {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.bg-glass {
+  backdrop-filter: blur(5px);
+  background-color: #aaa5;
+}
+
+@media (max-width: 767px) {
+  .fixed-md-cu {
+    position: fixed;
+    top: unset;
+    bottom: 0;
+    z-index: 2000;
+  }
+
+  .rounded-end-5- {
+    border-radius: 100px !important;
+  }
+}
+
+.bg-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.height-300px {
+  height: 300px;
+}
+
+.w-min {
+  width: fit-content;
+}
+
+.top-right-0 {
+  top: 0;
+  right: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.full-screen-fixed {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.center-fixed {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.font-10px {
+  font-size: 10px;
+}
+
+.transform-try {
+  transform: translateY(-50px);
+}
+
+@media (max-width: 576px) {
+  .transform-try {
+    transform: translateY(0);
+  }
+}
+
+.height-150px {
+  height: 150px;
+}
+
+.toman-size {
+  width: 25px;
+}
+
+.height-130px {
+  height: 130px;
+}
+
+.height-250px {
+  height: 250px;
+}
+
+header .navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: var(--col-emerald-500) !important;
+}
+
+header .navbar-nav .nav-link {
+  font-size: 18px !important;
+}
+
+header .navbar-nav .nav-link i {
+  font-size: 25px !important;
+}
+
+header .item-header {
+  position: relative;
+  font-size: 13px;
+}
+
+header .item-header i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav:last-of-type .active {
+  font-size: 13px;
+}
+
+header nav:last-of-type .active i {
+  color: var(--col-emerald-500);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  font-size: 35px !important;
+  background-color: rgba(var(--bs-light-rgb), 1);
+  width: 60px;
+  height: 60px;
+}
+
+
+#home-slider-banner .col-4 {
+  max-height: 300px;
+}
+
+#home-slider-sale .swiper-slide:last-of-type {
+  border-radius: 2rem 0 0 2rem;
+}
+
+#home-slider-sale .swiper-slide:first-of-type {
+  border-radius: 0 2rem 2rem 0;
+}
+@media screen and (max-width: 767px) {
+  .container-md .z-2.rounded-start-5 {
+    border-radius: 2rem !important;
+  }
+}
