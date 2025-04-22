@@ -81,7 +81,7 @@ async function getData() {
       document.body.innerHTML += `
       <div class="toast align-items-center position-fixed top-0 mt-5 z-3 rounded-5 show" data-bs-theme="dark">
         <div class="toast-header rounded-top-5">
-          <div class="p-3 rounded-circle bg-emerald me-1"></div>
+          <div class="p-3 rounded-circle bg-red me-1"></div>
           <strong>دیجی مارک</strong>
           <small class="text-body-secondary ms-auto">پیام خطا</small>
           <button class="btn-close me-2" data-bs-dismiss="toast"></button>
@@ -94,7 +94,7 @@ async function getData() {
     document.body.innerHTML += `
       <div class="toast align-items-center position-fixed top-0 mt-5 z-3 rounded-5 show" data-bs-theme="dark">
         <div class="toast-header rounded-top-5">
-          <div class="p-3 rounded-circle bg-emerald me-1"></div>
+          <div class="p-3 rounded-circle bg-red me-1"></div>
           <strong>دیجی مارک</strong>
           <small class="text-body-secondary ms-auto">پیام خطا</small>
           <button class="btn-close me-2" data-bs-dismiss="toast"></button>
@@ -140,6 +140,9 @@ function productTab(target) {
           </div>
         </div>  
       </div>`;
+      PTab.querySelector("button.txt-5").addEventListener("click", () => {
+        addToCart(elem.children[1].children[1].innerText, elem.children[1].children[5].innerHTML, elem.children[0].children[0].src);
+      });
       document.body.appendChild(PTab);
       PTab.addEventListener("click", (even) => {
         if (even.target.classList[0] == "bg-glass") {
@@ -152,7 +155,49 @@ function productTab(target) {
     });
   });
 }
+function addToCart(title, priceBox, img) {
+  document.querySelector("div.modal > .modal-dialog .modal-body").innerHTML += `
+  <div class="position-relative p-2 rounded-3 bg-body-tertiary d-flex flex-row justify-content-between align-items-center">
+    <button class="btn bg-transparent text-hvr-red-300 position-absolute top-0 left-0 p-2 del-product"><i class="fa-duotone fa-trash-alt"></i></button>
+    <div class="col ratio ratio-1x1 overflow-hidden rounded-3">
+      <img src="${img}" class="object-fit-cover w-100" alt="" />
+    </div>
+    <div class="col-9 ps-2">
+      <p class="txt-5 fw-bold">${title}</p>
+      <div class="p-2 w-min ms-auto bg-emerald-100 rounded-5 position-relative">
+        ${priceBox}
+      </div>
+    </div>
+  </div>
+  `;
 
+  let price = document.createElement("div");
+  price.innerHTML = priceBox;
+  priceShow(price.children[0].children[0].innerHTML, "+");
+  [...document.querySelectorAll(".del-product")].map((elem) => {
+    elem.addEventListener("click", (e) => {
+      e.target.parentElement.parentElement.remove();
+      priceShow(price.children[0].children[0].innerHTML, "");
+    });
+  });
+  document.querySelector(".successAddCart").classList.toggle("hide");
+  document.querySelector(".successAddCart").classList.toggle("show");
+}
+let currentCartPrice = 0;
+function priceShow(newPrice, opr) {
+  newPrice = Number(newPrice.replace(/,/g, ""));
+  switch (opr) {
+    case "+":
+      currentCartPrice = newPrice + currentCartPrice;
+      document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
+      break;
+
+    default:
+      currentCartPrice = newPrice - currentCartPrice;
+      document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
+      break;
+  }
+}
 function minNameSlider(name) {
   return name.slice(0, 25) + "...";
 }
@@ -168,7 +213,7 @@ function priceOff(sale, price) {
   } else {
     return `
     <div class="d-flex p-0 flex-column gap-0 align-items-end position-relative">
-      <p class="txt-6 fw-light d-flex flex-row align-items-center text-end p-0 m-0 ms-5">${minPrice((price * sale) / 100)} <smal><img src="../toman.svg" class="toman-size"/></smal></p>
+      <p class="d-flex flex-row align-items-center text-end p-0 m-0 ms-5"><span class="txt-6 fw-light">${minPrice((price * sale) / 100)}</span> <smal><img src="../toman.svg" class="toman-size"/></smal></p>
       <p class="fw-lighter text-end text-decoration-line-through text-gray p-0 m-0 font-10px">${minPrice(price)}</p>
       <span class="p-1 badge rounded-pill bg-emerald text-light fw-lighter position-absolute top-right-0">${sale}%</span>
     </div>

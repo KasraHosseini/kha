@@ -20,7 +20,9 @@
 body {
   overflow-x: hidden;
 }
-
+.z-4{
+  z-index: 4;
+}
 .height-300 {
   height: 300px;
 }

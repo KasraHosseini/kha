@@ -22,6 +22,9 @@
             <li class="nav-item">
               <a href="#" class="text-dark nav-link active">صفحه اصلی</a>
             </li>
+            <li class="nav-item">
+              <button class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#user-cart"><i class="fa-duotone fa-cart-shopping"></i></button>
+            </li>
 
             <li class="nav-link text-dark p-0">
               <button class="dark-light-btn p-0 nav-link"><i class="fa-duotone fa-moon-stars"></i></button>
@@ -33,11 +36,32 @@
         <button class="border-0 bg-light text-dark item-header d-flex gap-1 align-items-center justify-content-center flex-column p-0" data-bs-toggle="modal" data-bs-target="#user-cart"><i class="fa-duotone fa-cart-shopping fs-5"></i>خرید ها</button>
         <a href="index.html" class="text-decoration-none text-dark item-header d-flex gap-1 justify-content-center flex-column active"><i class="fa-duotone fa-home-alt fs-5 rounded-circle"></i> خانه</a>
 
-
         <button class="border-0 bg-light text-dark item-header d-flex align-items-center justify-content-center dark-light-btn fs-3"><i class="fa-duotone fa-moon-stars"></i></button>
       </nav>
     </header>
-
+    <div class="modal" id="user-cart" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content rounded-5">
+          <div class="modal-header">
+            <p class="modal-title fs-5">سبد خرید</p>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body row-gap-2 d-flex flex-column">
+            
+            
+          </div>
+          <div class="modal-footer">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <div class="input-group input-group-sm">
+                <button class="btn btn-outline-success px-3 rounded-start-5">پرداخت</button>
+                <button class="btn btn-danger px-3 rounded-end-5" data-bs-dismiss="modal">بستن</button>
+              </div>
+              <div class="col-6 cartPrice"><span class="fw-bolder"></span> <img src="toman.svg" class="toman-size" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="container-fluid d-flex justify-content-center align-items-center mb-3">
       <div class="row flex-column-reverse flex-md-row">
         <div class="col-md-7 d-flex flex-column text-center text-md-start justify-content-center align-items-center align-items-md-start">
@@ -128,7 +152,15 @@
         <div class="col-12 bg-gray-300 text-center mt-2">تمام حقوق محفوظ است &copy;</div>
       </div>
     </footer>
-
+    <div class="toast align-items-center position-fixed top-0 mt-5 z-4 rounded-5 hide successAddCart" data-bs-theme="dark">
+      <div class="toast-header rounded-top-5">
+        <div class="p-3 rounded-circle bg-emerald me-1"></div>
+        <strong>دیجی مارک</strong>
+        <small class="text-body-secondary ms-auto">پیام موفقیت</small>
+        <button class="btn-close me-2" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body text-light">به سبد خرید افزوده شد</div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/main-script.js" type="module"></script>
