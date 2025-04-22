@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.rtl.min.css" integrity="sha384-q8+l9TmX3RaSz3HKGBmqP2u5MkgeN7HrfOJBLcTgZsQsbrx8WqqxdA5PuwUV9WIx" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/all.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/colcs.min.css" />
+    <link rel="stylesheet" href="css/text-res.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="shortcut icon" href="digimark.svg" type="image/x-icon" />
+    <title>Digi Mark - Home page</title>
+  </head>
+  <body data-bs-theme="light" data-theme-mode="light" class="pb-5 pb-md-0 d-flex justify-content-center align-items-center flex-column">
+    <header class="sticky-cu fixed-md-cu w-100 z-3">
+      <nav class="navbar bg-light rounded-bottom-5 navbar-expand-sm d-none d-md-block">
+        <div class="container-fluid justify-content-around">
+          <a href="index.html" class="text-emerald-500 navbar-brand"><img src="digimark.svg" width="30" class="me-1" alt="navbar brand logo" />دیجی مارک</a>
+          <ul class="navbar-nav gap-3">
+            <li class="nav-item">
+              <a href="#" class="text-dark nav-link active">صفحه اصلی</a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#user-cart"><i class="fa-duotone fa-cart-shopping"></i></button>
+            </li>
+
+            <li class="nav-link text-dark p-0">
+              <button class="dark-light-btn p-0 nav-link"><i class="fa-duotone fa-moon-stars"></i></button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <nav class="d-flex justify-content-evenly align-items-end py-1 bg-light rounded-top-5 text-dark text-center d-md-none">
+        <button class="border-0 bg-light text-dark item-header d-flex gap-1 align-items-center justify-content-center flex-column p-0" data-bs-toggle="modal" data-bs-target="#user-cart"><i class="fa-duotone fa-cart-shopping fs-5"></i>خرید ها</button>
+        <a href="index.html" class="text-decoration-none text-dark item-header d-flex gap-1 justify-content-center flex-column active"><i class="fa-duotone fa-home-alt fs-5 rounded-circle"></i> خانه</a>
+
+        <button class="border-0 bg-light text-dark item-header d-flex align-items-center justify-content-center dark-light-btn fs-3"><i class="fa-duotone fa-moon-stars"></i></button>
+      </nav>
+    </header>
+    <div class="modal" id="user-cart" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content rounded-5">
+          <div class="modal-header">
+            <p class="modal-title fs-5">سبد خرید</p>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body row-gap-2 d-flex flex-column">
+            
+            
+          </div>
+          <div class="modal-footer">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <div class="input-group input-group-sm">
+                <button class="btn btn-outline-success px-3 rounded-start-5">پرداخت</button>
+                <button class="btn btn-danger px-3 rounded-end-5" data-bs-dismiss="modal">بستن</button>
+              </div>
+              <div class="col-6 cartPrice"><span class="fw-bolder"></span> <img src="toman.svg" class="toman-size" alt=""></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="container-fluid d-flex justify-content-center align-items-center mb-3">
+      <div class="row flex-column-reverse flex-md-row">
+        <div class="col-md-7 d-flex flex-column text-center text-md-start justify-content-center align-items-center align-items-md-start">
+          <h1 class="display-3">به <strong class="text-emerald-500">دیجی مارک</strong> خوش آمدید</h1>
+        </div>
+        <div class="col bg-emerald p-5 rounded-start-pill d-flex justify-content-center align-items-center">
+          <img src="digimark.png" class="w-75" alt="" />
+        </div>
+      </div>
+    </section>
+    <section class="container-md d-flex gap-3 gap-md-0 flex-column flex-md-row bg-emerald hover-colcs shadow-hvr-box-gray-600 shadow-box-gray-200 p-3 rounded-5 mb-3">
+      <div class="z-2 rounded-start-5 text-light col-md-3 col-lg-2 fs-3 bg-emerald p-1 d-flex flex-row flex-md-column justify-content-center align-items-center shadow">
+        <p class="fs-5">محصولات پر تخفیف</p>
+        <p class="fs-6" id="date_timer"><kbd>00</kbd>:<kbd>00</kbd>:<kbd>00</kbd></p>
+      </div>
+      <div class="swiper col-11 col-md-9 col-lg-10 rounded-5 overflow-hidden" id="home-slider-sale">
+        <div class="swiper-wrapper d-flex align-items-end"></div>
+      </div>
+    </section>
+    <section class="container-fluid py-2 mb-4">
+      <div class="row justify-content-evenly align-items-center row-gap-5">
+        <div class="row justify-content-around align-items-center row-gap-5" id="home-categories"></div>
+      </div>
+    </section>
+    <section class="container-lg p-2 rounded-3 overflow-hidden shadow-box-gray-100 shadow-hvr-box-emerald-300 position-relative hover-colcs d-flex flex-column align-items-center justify-content-center gap-2 mb-3">
+      <div class="w-100 bg-emerald-50 rounded-bottom-pill position-absolute top-0 z-0 height-250px"></div>
+      <div class="w-100 z-1">
+        <h3 class="p fs-5 px-2 border-start border-5 border-emerald">محصولات پر فروش</h3>
+      </div>
+      <div class="w-100 row align-items-stretch justify-content-evenly row-gap-4 z-1 column-gap-2" id="home-product"></div>
+    </section>
+    <section class="col-12 col-md-10 col-lg-8 p-2">
+      <h3 class="ps-3 border-start border-5 fs-5 border-emerald">برند های منتخب</h3>
+      <div class="swiper" id="home-slider-brands">
+        <div class="swiper-wrapper"></div>
+      </div>
+    </section>
+    <footer class="container-fluid my-2 pt-1 border-top border-emerald rounded-top-5 px-1">
+      <div class="row m-0 container-fluid align-items-center justify-content-center">
+        <div class="col-12 row">
+          <div class="col-3">
+            <img src="digimark.png" class="w-100" alt="" />
+            <div class="d-flex flex-column flex-md-row txt-6 justify-content-center align-items-center gap-0 gap-md-3 w-100">
+              <p class="m-0">021-4562578</p>
+              <p class="d-none d-md-block">|</p>
+              <p class="m-0">24 ساعته</p>
+            </div>
+          </div>
+          <div class="col">
+            <h2 class="text-emerald">دیجی مارک</h2>
+            <p class="text-gray-400 txt-6" id="footer-text">
+              یک خرید اینترنتی مطمئن، نیازمند فروشگاهی است که بتواند کالاهایی متنوع، باکیفیت و دارای قیمت مناسب را در مدت زمان ی کوتاه به دست مشتریان خود برساند و ضمانت بازگشت کالا هم داشته باشد. <br />
+              ویژگی‌هایی که فروشگاه اینترنتی دیجی مارک سال‌هاست بر روی آن‌ها کار کرده و توانسته از این طریق مشتریان ثابت خود را داشته باشد. یکی از مهم‌ترین دغدغه‌های کاربران دیجی مارک یا هر فروشگاه‌ اینترنتی دیگری، این است که کالای خریداری شده چه زمانی به دستشان می‌رسد. دیجی مارک شیوه‌های مختلفی از ارسال را متناسب با فروشنده کالا،‌ مقصد کالا و همچنین نوع کالا در اختیار کاربران خود قرار می‌دهد. هر یک از روش های ارسال دیجی مارک شرایط و ویژگی‌های خاص خود را دارند که ممکن است گاهی برای کاربران جدید، مبهم و پیچیده به نظر برسند. برای آگاهی بیشتر مشتریان از خدمات دیجی مارک، این فروشگاه اینترنتی در بخشی از وب‌سایت خود راهنمای کاملی از شیوه‌‌های ارسال را به صورت ساده و به دور از پیچیدگی، قرار داده است که شامل 8 نوع ارسال کالا به روش‌های زیر است: ارسال امروز، دریافت حضوری، دریافت از گنجه، ارسال توسط فروشنده، ارسال عادی، ارسال کالاهای بزرگ، سنگین و فوق سنگین، ارسال سریع سوپرمارکتی، ارسال با پست
+            </p>
+            <button class="btn text-info" id="open-desc">باز کردن</button>
+          </div>
+        </div>
+        <div class="col-lg-6 row align-items-stretch justify-content-evenly">
+          <div class="col-6">
+            <p class="txt-6 fw-bolder text-emerald">دسترسی سریع</p>
+            <a href="index.html" class="text-decoration-none text-emerald-300 d-flex align-items-center gap-1"><i class="fa fa-angle-left"></i> صفحه اصلی</a>
+          </div>
+          <div class="col-6">
+            <p class="txt-6 fw-bolder text-emerald">لینک های مرتبط</p>
+            <a href="#" class="text-decoration-none text-emerald-300 d-flex align-items-center gap-1"><i class="fa fa-angle-left"></i> سامانه نماد</a>
+            <a href="#" class="text-decoration-none text-emerald-300 d-flex align-items-center gap-1"><i class="fa fa-angle-left"></i> اتحادیه کسب و کار</a>
+            <a href="#" class="text-decoration-none text-emerald-300 d-flex align-items-center gap-1"><i class="fa fa-angle-left"></i> شاپرک</a>
+            <a href="#" class="text-decoration-none text-emerald-300 d-flex align-items-center gap-1"><i class="fa fa-angle-left"></i> وب کاران</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row flex-row justify-content-evenly align-items-center">
+            <img src="media/image/logo.png" class="bg-gray-50 rounded-3 border col-3" alt="" />
+            <img src="media/image/kasbokar.webp" class="bg-gray-50 rounded-3 border col-3" alt="" />
+            <img src="media/image/rezi.webp" class="bg-gray-50 rounded-3 border col-3" alt="" />
+          </div>
+          <div class="mt-5">
+            <p class="ps-2 border-start border-3 border-emerald">ما را دنبال کنید</p>
+            <div class="d-flex align-items-center justify-content-evenly gap-3">
+              <i class="txt-1 fab fa-instagram text-gray"></i>
+              <i class="txt-1 fab fa-x-twitter text-gray"></i>
+              <i class="txt-1 fab fa-linkedin-in text-gray"></i>
+              <i class="txt-1 fab fa-telegram text-gray"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 bg-gray-300 text-center mt-2">تمام حقوق محفوظ است &copy;</div>
+      </div>
+    </footer>
+    <div class="toast align-items-center position-fixed top-0 mt-5 z-4 rounded-5 hide successAddCart" data-bs-theme="dark">
+      <div class="toast-header rounded-top-5">
+        <div class="p-3 rounded-circle bg-emerald me-1"></div>
+        <strong>دیجی مارک</strong>
+        <small class="text-body-secondary ms-auto">پیام موفقیت</small>
+        <button class="btn-close me-2" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body text-light">به سبد خرید افزوده شد</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script/main-script.js" type="module"></script>
+    <script src="script/main-connection.js"></script>
+  </body>
+</html>
