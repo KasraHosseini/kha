@@ -176,7 +176,7 @@ function addToCart(title, priceBox, img) {
   priceShow(price.children[0].children[0].innerHTML, "+");
   [...document.querySelectorAll(".del-product")].map((elem) => {
     elem.addEventListener("click", (e) => {
-      elem.parentElement.parentElement.remove();
+      elem.parentElement.remove();
       priceShow(price.children[0].children[0].innerHTML, "");
     });
   });
