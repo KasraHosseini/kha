@@ -193,7 +193,7 @@ function priceShow(newPrice, opr) {
       break;
 
     default:
-      currentCartPrice = newPrice - currentCartPrice;
+      currentCartPrice = currentCartPrice - newPrice;
       document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
       break;
   }
