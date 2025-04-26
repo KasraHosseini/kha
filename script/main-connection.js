@@ -144,7 +144,7 @@ function productTab(target) {
         </div>  
       </div>`;
       PTab.querySelector("button.txt-5").addEventListener("click", () => {
-        addToCart(elem.children[1].children[1].innerText, elem.children[1].children[5].innerHTML, elem.children[0].children[0].src);
+        addToCart(elem.children[1].children[1].innerText, elem.children[1].children[6].innerHTML, elem.children[0].children[0].src);
       });
       document.body.appendChild(PTab);
       PTab.addEventListener("click", (even) => {
