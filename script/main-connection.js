@@ -190,7 +190,6 @@ function addToCart(title, priceBox, img) {
 }
 let currentCartPrice = 0;
 function showPrice(newPrice, opr) {
-  console.log(newPrice);
   newPrice = Number(newPrice.replace(/,/g, ""));
   switch (opr) {
     case "+":
