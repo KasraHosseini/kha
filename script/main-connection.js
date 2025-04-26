@@ -18,6 +18,7 @@ async function getData() {
                 <p class="d-none">${elem.desc}</p>
                 <p class="d-none">${elem.cate}</p>
                 <p class="d-none">${elem.brand}</p>
+                <p class="d-none">${elem.id}</p>
                 ${priceOff(elem.sale, elem.price)}
               </div>
             </div>`;
@@ -64,6 +65,7 @@ async function getData() {
                 <p class="d-none">${elem.desc}</p>
                 <p class="d-none">${elem.cate}</p>
                 <p class="d-none">${elem.brand}</p>
+                <p class="d-none">${elem.id}</p>
                 ${priceOff(elem.sale, elem.price)}
               </div>
             </div>
@@ -129,9 +131,10 @@ function productTab(target) {
                   <div class="fw-bold txt-6">
                     <p>دسته بندی: <small class="fw-light">${elem.children[1].children[3].innerText}</small></p>
                     <p>برند: <small class="fw-light">${elem.children[1].children[4].innerText}</small></p>
+                    <p>کد: <small class="fw-light">${elem.children[1].children[5].innerText}</small></p>
                   </div>
                   <div class="position-relative w-min">
-                    ${elem.children[1].children[5].innerHTML}
+                    ${elem.children[1].children[6].innerHTML}
                   </div>            
                 </div>
                 <button class="txt-5 col-10 rounded-pill bg-emerald bg-hvr-emerald-600 border-0">افزودن به سبد خرید <i class="fa-duotone fa-basket-shopping-plus"></i></button>
@@ -170,34 +173,52 @@ function addToCart(title, priceBox, img) {
     </div>
   </div>
   `;
-
   let price = document.createElement("div");
   price.innerHTML = priceBox;
-  priceShow(price.children[0].children[0].innerHTML, "+");
-  [...document.querySelectorAll(".del-product")].map((elem) => {
-    elem.addEventListener("click", (e) => {
+  showPrice(price.querySelector("span.txt-6.fw-light").innerHTML, "+");
+
+  [...document.querySelectorAll("button.del-product")].map((elem) => {
+    elem.addEventListener("click", () => {
+      //
+      showPrice(elem.nextElementSibling.nextElementSibling.querySelector("span.txt-6.fw-light").innerHTML, "-");
       elem.parentElement.remove();
-      priceShow(price.children[0].children[0].innerHTML, "");
     });
   });
+
   document.querySelector(".successAddCart").classList.toggle("hide");
   document.querySelector(".successAddCart").classList.toggle("show");
 }
 let currentCartPrice = 0;
-function priceShow(newPrice, opr) {
+function showPrice(newPrice, opr) {
+  console.log(newPrice);
   newPrice = Number(newPrice.replace(/,/g, ""));
   switch (opr) {
     case "+":
-      currentCartPrice = newPrice + currentCartPrice;
+      currentCartPrice = currentCartPrice + newPrice;
       document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
       break;
-
-    default:
+    case "-":
       currentCartPrice = currentCartPrice - newPrice;
       document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
       break;
   }
 }
+// function priceShow(newPrice, opr) {
+//   console.log(newPrice);
+//   newPrice = Number(newPrice.replace(/,/g, ""));
+//   switch (opr) {
+//     case "+":
+//       currentCartPrice = newPrice + currentCartPrice;
+//       document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
+//       break;
+
+//     default:
+//       console.log(newPrice);
+//       currentCartPrice = currentCartPrice - newPrice;
+//       document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
+//       break;
+//   }
+// }
 function minNameSlider(name) {
   return name.slice(0, 25) + "...";
 }
