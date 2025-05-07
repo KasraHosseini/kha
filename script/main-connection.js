@@ -108,7 +108,50 @@ async function getData() {
   }
 }
 getData();
+function generateCaptcha(length) {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let captcha = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * chars.length);
+    captcha += chars.charAt(randomIndex);
+  }
+  return captcha;
+}
 
+document.addEventListener("DOMContentLoaded", function () {
+  const captchaInput = document.getElementById("captcha-input");
+  const captchaShow = document.getElementById("captcha-show");
+  const captchaBtn = document.getElementById("captcha-check-btn");
+  const captchaMsg = document.getElementById("captcha-msg");
+
+  let captchaCode = generateCaptcha(6);
+  captchaShow.value = captchaCode;
+
+  captchaBtn.addEventListener("click", function () {
+    const userInput = captchaInput.value.trim().toUpperCase();
+    
+    if (userInput === captchaCode) {
+      captchaMsg.innerHTML = "کد امنیتی به درستی وارد شده است.<br>6219861807726327";
+      captchaMsg.classList.remove("text-danger");
+      captchaMsg.classList.add("text-success");
+    } else {
+      captchaMsg.textContent = "کد وارد شده صحیح نیست. لطفاً دوباره تلاش کنید.";
+      captchaMsg.classList.remove("text-success");
+      captchaMsg.classList.add("text-danger");
+      captchaInput.value = "";
+      captchaCode = generateCaptcha(6);
+      captchaShow.value = captchaCode;
+    }
+  });
+
+  const payModal = document.getElementById("pay-help");
+  payModal.addEventListener("shown.bs.modal", function () {
+    captchaInput.value = "";
+    captchaMsg.textContent = "";
+    captchaCode = generateCaptcha(6);
+    captchaShow.value = captchaCode;
+  });
+});
 function productTab(target) {
   let PTab = document.createElement("div");
   PTab.classList = "product-modal position-fixed full-screen-fixed z-3";
@@ -159,7 +202,7 @@ function productTab(target) {
   });
 }
 function addToCart(title, priceBox, img) {
-  document.querySelector("div.modal > .modal-dialog .modal-body").innerHTML += `
+  document.querySelector("div.modal.product-m > .modal-dialog .modal-body").innerHTML += `
   <div class="position-relative p-2 rounded-3 bg-body-tertiary d-flex flex-row justify-content-between align-items-center">
     <button class="btn bg-transparent text-hvr-red-300 position-absolute top-0 left-0 p-2 del-product"><i class="fa-duotone fa-trash-alt"></i></button>
     <div class="col ratio ratio-1x1 overflow-hidden rounded-3">
@@ -202,22 +245,7 @@ function showPrice(newPrice, opr) {
       break;
   }
 }
-// function priceShow(newPrice, opr) {
-//   console.log(newPrice);
-//   newPrice = Number(newPrice.replace(/,/g, ""));
-//   switch (opr) {
-//     case "+":
-//       currentCartPrice = newPrice + currentCartPrice;
-//       document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
-//       break;
 
-//     default:
-//       console.log(newPrice);
-//       currentCartPrice = currentCartPrice - newPrice;
-//       document.querySelector(".cartPrice span").innerHTML = minPrice(currentCartPrice);
-//       break;
-//   }
-// }
 function minNameSlider(name) {
   return name.slice(0, 25) + "...";
 }
@@ -233,7 +261,7 @@ function priceOff(sale, price) {
   } else {
     return `
     <div class="d-flex p-0 flex-column gap-0 align-items-end position-relative">
-      <p class="d-flex flex-row align-items-center text-end p-0 m-0 ms-5"><span class="txt-6 fw-light">${minPrice((price * sale) / 100)}</span> <smal><img src="../toman.svg" class="toman-size"/></smal></p>
+      <p class="d-flex flex-row align-items-center text-end p-0 m-0 ms-5"><span class="txt-6 fw-light">${minPrice(price - (price * sale) / 100)}</span> <smal><img src="../toman.svg" class="toman-size"/></smal></p>
       <p class="fw-lighter text-end text-decoration-line-through text-gray p-0 m-0 font-10px">${minPrice(price)}</p>
       <span class="p-1 badge rounded-pill bg-emerald text-light fw-lighter position-absolute top-right-0">${sale}%</span>
     </div>
