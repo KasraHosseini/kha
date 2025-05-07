@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const userInput = captchaInput.value.trim().toUpperCase();
     
     if (userInput === captchaCode) {
-      captchaMsg.innerHTML = "کد امنیتی به درستی وارد شده است.<br>6219861807726327";
+      captchaMsg.innerHTML = "کد امنیتی به درستی وارد شده است.<br>6219861807726327<br>پس از انتقال وجه، تصویر فیش را به شماره<br>09911996318<br>ارسال کنید";
       captchaMsg.classList.remove("text-danger");
       captchaMsg.classList.add("text-success");
     } else {
