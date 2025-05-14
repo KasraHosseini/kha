@@ -257,7 +257,7 @@ function minPrice(price) {
 }
 function priceOff(sale, price) {
   if (sale == "" || sale == 0) {
-    return `<p class="txt-5 fw-lighter text-end">${minPrice(price)} <smal><img src="../toman.svg" class="toman-size"/></smal></p>`;
+    return `<p class="txt-5 fw-lighter text-end"><span class="txt-6 fw-light">${minPrice(price)}</span> <smal><img src="../toman.svg" class="toman-size"/></smal></p>`;
   } else {
     return `
     <div class="d-flex p-0 flex-column gap-0 align-items-end position-relative">
