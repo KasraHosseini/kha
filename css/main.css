@@ -154,12 +154,11 @@ header nav:last-of-type .active {
 }
 
 header nav:last-of-type .active i {
-  color: var(--col-emerald-500);
+  color: var(--col-emerald-500) !important;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -60%);
   font-size: 35px !important;
-  background-color: rgba(var(--bs-light-rgb), 1);
   width: 60px;
   height: 60px;
 }
