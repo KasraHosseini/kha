@@ -1,6 +1,6 @@
 :root,
 [data-bs-theme="light"] {
-  --bs-bg-over: #fffc, #fffc;
+  --bs-bg-over: #fff0, #fff0;
 }
 
 :root,
@@ -20,7 +20,10 @@
 body {
   overflow-x: hidden;
 }
-.z-4{
+[data-bs-theme="dark"] .bg-overly {
+  filter: brightness(0.8);
+}
+.z-4 {
   z-index: 4;
 }
 .height-300 {
@@ -127,7 +130,7 @@ body {
 
 header .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: var(--col-emerald-500) !important;
+  color: var(--col-slate-500) !important;
 }
 
 header .navbar-nav .nav-link {
@@ -154,7 +157,7 @@ header nav:last-of-type .active {
 }
 
 header nav:last-of-type .active i {
-  color: var(--col-emerald-500) !important;
+  color: var(--col-slate-500) !important;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -60%);
@@ -162,7 +165,6 @@ header nav:last-of-type .active i {
   width: 60px;
   height: 60px;
 }
-
 
 #home-slider-banner .col-4 {
   max-height: 300px;

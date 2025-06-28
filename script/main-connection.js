@@ -8,9 +8,9 @@ async function getData() {
 
       data[0].db.product.big_sale.map((elem) => {
         document.querySelector("#home-slider-sale .swiper-wrapper").innerHTML += `
-            <div class="swiper-slide product-modal-btn bg-body-tertiary border border-emerald-400 text-center height-250px p-1 d-flex flex-column align-items-center height-250px product-tab-sale">
+            <div class="swiper-slide product-modal-btn bg-body-tertiary border border-slate-400 text-center height-250px p-1 d-flex flex-column align-items-center height-250px product-tab-sale">
               <div>
-                <img src="${elem.img_url}" class="img-thumbnail border-emerald-100" alt="" />
+                <img src="${elem.img_url}" class="img-thumbnail border-slate-100 bg-overly" alt="" />
               </div>
               <div class="w-100 h-100 d-flex justify-content-between flex-column gap-0">
                 <p class="txt-5">${minNameSlider(elem.title)}</p>
@@ -26,27 +26,27 @@ async function getData() {
       for (let i = 0; i < data[0].db.product.categories.length; i++) {
         if ((i + 1) % 3 == 0) {
           document.querySelector("#home-categories").innerHTML += `
-            <div class="col-10 p-0 pe-2 overflow-hidden row justify-content-around align-items-center border border-emerald-200 rounded-5 height-150px">
+            <div class="col-10 p-0 pe-2 overflow-hidden row justify-content-around align-items-center border border-2 border-slate-400 rounded-5 height-150px">
                 <div class="col-7 h-100 p-0">
-                    <div class="w-min bg-emerald text-light rounded-end-pill h-100 d-flex justify-content-center align-items-start flex-column ps-5 pe-3">
+                    <div class="w-min bg-slate-400 text-light rounded-end-pill h-100 d-flex justify-content-center align-items-start flex-column ps-5 pe-3">
                         <h3 class="fs-4 fw-bolder">${data[0].db.product.categories[i].faName}</h3>
                     </div>
                 </div>
                 <div class="ratio-cu ratio ratio-1x1 col overflow-hidden rounded-5 d-flex justify-content-center align-items-center height-130px">
-                    <img src="${data[0].db.product.categories[i].thumbnail}" class="object-fit-cover rounded-2" alt="" />
+                    <img src="${data[0].db.product.categories[i].thumbnail}" class="object-fit-cover rounded-2 bg-overly" alt="" />
                 </div>
             </div>
             `;
         } else {
           document.querySelector("#home-categories").innerHTML += `
-            <div class="col-10 col-md-5 p-0 pe-2 overflow-hidden row justify-content-around align-items-center border border-emerald-200 rounded-5 height-150px">
+            <div class="col-10 col-md-5 p-0 pe-2 overflow-hidden row justify-content-around align-items-center border border-2 border-slate-400 rounded-5 height-150px">
                 <div class="col-7 h-100 p-0">
-                    <div class="w-min bg-emerald text-light rounded-end-pill h-100 d-flex justify-content-center align-items-start flex-column ps-5 pe-3">
+                    <div class="w-min bg-slate-400 text-light rounded-end-pill h-100 d-flex justify-content-center align-items-start flex-column ps-5 pe-3">
                         <h3 class="fs-4 fw-bolder">${data[0].db.product.categories[i].faName}</h3>
                     </div>
                 </div>
                 <div class="ratio-cu ratio ratio-1x1 col overflow-hidden rounded-5 d-flex justify-content-center align-items-center height-130px">
-                    <img src="${data[0].db.product.categories[i].thumbnail}" class="object-fit-cover rounded-2" alt="" />
+                    <img src="${data[0].db.product.categories[i].thumbnail}" class="object-fit-cover rounded-2 bg-overly" alt="" />
                 </div>
             </div>
             `;
@@ -55,9 +55,9 @@ async function getData() {
 
       data[0].db.product.product.map((elem) => {
         document.querySelector("#home-product").innerHTML += `
-            <div class="p-2 product-modal-btn hover-colcs shadow-hvr-box-gray col-5 col-lg-2 border border-emerald bg-gray-100 rounded-4">
+            <div class="p-2 product-modal-btn hover-colcs shadow-hvr-box-gray col-5 col-md-3 col-lg-2 border border-slate-400 bg-gray-100 rounded-4">
               <div>
-                <img src="${elem.img_url}" class="img-thumbnail border-0" alt="" />
+                <img src="${elem.img_url}" class="img-thumbnail border-0 bg-overly" alt="" />
               </div>
               <div class="w-100 d-flex justify-content-between flex-column gap-0">
                 <p class="txt-5">${minName(elem.title)}</p>
@@ -75,7 +75,7 @@ async function getData() {
       data[0].db.product.brands.map((elem) => {
         document.querySelector("#home-slider-brands .swiper-wrapper").innerHTML += `
         <div class="swiper-slide ratio ratio-16x9">
-          <img src="${elem.thumbnail}" class="w-100 object-fit-cover" alt="">
+          <img src="${elem.thumbnail}" class="w-100 object-fit-cover bg-overly" alt="">
         </div>`;
       });
       productTab([...document.querySelectorAll(".product-modal-btn")]);
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   captchaBtn.addEventListener("click", function () {
     const userInput = captchaInput.value.trim().toUpperCase();
-    
+
     if (userInput === captchaCode) {
       captchaMsg.innerHTML = "کد امنیتی به درستی وارد شده است.<br>6219861807726327<br>پس از انتقال وجه، تصویر فیش را به شماره<br>09911996318<br>ارسال کنید";
       captchaMsg.classList.remove("text-danger");
@@ -161,10 +161,10 @@ function productTab(target) {
       PTab.innerHTML = `
       <div class="bg-glass w-100 h-100 rounded-3 z-2">
         <div class="p-2 p-md-3 col-10 col-md-9 h-100 overflow-auto center-fixed position-absolute rounded-5 bg-gray-50">
-          <button class="btn-close- text-emerald bg-transparent fw-bold border-0">بستن</button>
+          <button class="btn-close- text-slate-400 bg-transparent fw-bold border-0">بستن</button>
           <div class="row gap-2 gap-lg-0 align-items-center flex-column flex-lg-row-reverse">
             <div class="col-lg-6 overflow-hidden rounded-5">
-              <img src="${elem.children[0].children[0].src}" class="w-100 object-fit-cover rounded-5" alt=""/>
+              <img src="${elem.children[0].children[0].src}" class="w-100 object-fit-cover rounded-5 bg-overly" alt=""/>
             </div>
             <div class="col-lg-6 pb-5">
               <p class="fw-bolder txt-4">${elem.children[1].children[1].innerText}</p>
@@ -180,7 +180,7 @@ function productTab(target) {
                     ${elem.children[1].children[6].innerHTML}
                   </div>            
                 </div>
-                <button class="txt-5 col-10 rounded-pill bg-emerald bg-hvr-emerald-600 border-0">افزودن به سبد خرید <i class="fa-duotone fa-basket-shopping-plus"></i></button>
+                <button class="txt-5 py-2 col-10 rounded-pill bg-slate-400 bg-hvr-slate-600 border-0">افزودن به سبد خرید <i class="fa-duotone fa-basket-shopping-plus"></i></button>
               </div>
             </div>
           </div>
@@ -203,14 +203,14 @@ function productTab(target) {
 }
 function addToCart(title, priceBox, img) {
   document.querySelector("div.modal.product-m > .modal-dialog .modal-body").innerHTML += `
-  <div class="position-relative p-2 rounded-3 bg-body-tertiary d-flex flex-row justify-content-between align-items-center">
+  <div class="position-relative p-2 rounded-3 border border-2 border-gray-300 d-flex flex-row justify-content-between align-items-center">
     <button class="btn bg-transparent text-hvr-red-300 position-absolute top-0 left-0 p-2 del-product"><i class="fa-duotone fa-trash-alt"></i></button>
     <div class="col ratio ratio-1x1 overflow-hidden rounded-3">
-      <img src="${img}" class="object-fit-cover w-100" alt="" />
+      <img src="${img}" class="object-fit-cover w-100 bg-overly" alt="" />
     </div>
     <div class="col-9 ps-2">
       <p class="txt-5 fw-bold">${title}</p>
-      <div class="p-2 w-min ms-auto bg-emerald-100 rounded-5 position-relative">
+      <div class="p-2 w-min ms-auto bg-gray-300 rounded-5 position-relative">
         ${priceBox}
       </div>
     </div>
@@ -263,7 +263,7 @@ function priceOff(sale, price) {
     <div class="d-flex p-0 flex-column gap-0 align-items-end position-relative">
       <p class="d-flex flex-row align-items-center text-end p-0 m-0 ms-5"><span class="txt-6 fw-light">${minPrice(price - (price * sale) / 100)}</span> <smal><img src="toman.svg" class="toman-size"/></smal></p>
       <p class="fw-lighter text-end text-decoration-line-through text-gray p-0 m-0 font-10px">${minPrice(price)}</p>
-      <span class="p-1 badge rounded-pill bg-emerald text-light fw-lighter position-absolute top-right-0">${sale}%</span>
+      <span class="p-1 badge rounded-pill bg-stone-400 text-light fw-lighter position-absolute top-right-0">${sale}%</span>
     </div>
     `;
   }
