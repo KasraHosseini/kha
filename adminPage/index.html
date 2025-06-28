@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* styles.css */
+
+      /* 1. Variables & Reset */
+      :root {
+        --bg-page: #f2f4f8;
+        --surface: #ffffff;
+        --primary: #4a90e2;
+        --secondary: #7b8a8b;
+        --success: #2ecc71;
+        --warning: #f1c40f;
+        --danger: #e74c3c;
+        --text-main: #2c3e50;
+        --text-muted: #7f8c8d;
+        --border: #d1d5da;
+        --radius: 8px;
+        --transition: 0.3s ease;
+        --shadow-light: 0 2px 6px rgba(0, 0, 0, 0.1);
+        --shadow-strong: 0 4px 12px rgba(0, 0, 0, 0.15);
+        --font-base: "Segoe UI", Tahoma, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-base);
+        background: var(--bg-page);
+        color: var(--text-main);
+        min-height: 100vh;
+        line-height: 1.5;
+        padding: 1rem;
+      }
+
+      /* 2. Header */
+      header {
+        max-width: 1200px;
+        margin: 0 auto 1rem;
+        background: var(--surface);
+        padding: 1.5rem;
+        border-radius: var(--radius) var(--radius) 0 0;
+        box-shadow: var(--shadow-light);
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.75rem;
+        color: var(--primary);
+      }
+
+      /* 3. Main Section & Layout */
+      main > section {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: var(--surface);
+        border-radius: 0 0 var(--radius) var(--radius);
+        box-shadow: var(--shadow-light);
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        main > section {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* 4. Form & Selector Panels */
+      .selector,
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .selector h3,
+      .form h3 {
+        font-size: 1.125rem;
+        color: var(--text-main);
+      }
+
+      /* 5. Dropdown Actions */
+      .actions-set {
+        position: relative;
+        width: 100%;
+      }
+
+      .first-action {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: background var(--transition), box-shadow var(--transition);
+      }
+
+      .first-action:hover {
+        box-shadow: var(--shadow-strong);
+      }
+
+      .actions {
+        position: absolute;
+        top: calc(100% + 4px);
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        transition: max-height var(--transition), box-shadow var(--transition);
+        z-index: 10;
+      }
+
+      .actions.open {
+        max-height: 10rem;
+        box-shadow: var(--shadow-strong);
+      }
+
+      .actions div {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background var(--transition), color var(--transition);
+      }
+
+      .actions div:nth-child(1):hover {
+        background: var(--success);
+        color: #fff;
+      }
+
+      .actions div:nth-child(2):hover {
+        background: var(--warning);
+        color: #fff;
+      }
+
+      .actions div:nth-child(3):hover {
+        background: var(--danger);
+        color: #fff;
+      }
+
+      .actions input[type="number"] {
+        width: 4rem;
+        padding: 0.3rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+      }
+
+      /* 6. Form Fields */
+      .form .id,
+      .form .img,
+      .form .title,
+      .form .desc,
+      .form .price,
+      .form .sale,
+      .form .cate {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form label {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
+      }
+
+      .form input[type="text"],
+      .form input[type="number"],
+      .form textarea {
+        padding: 0.6rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--bg-page);
+        transition: border-color var(--transition), box-shadow var(--transition);
+      }
+
+      .form input:focus,
+      .form textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+      }
+
+      .form textarea {
+        resize: vertical;
+        min-height: 6rem;
+      }
+
+      /* 7. Submit Button */
+      .sub-btn {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        font-size: 1rem;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: background var(--transition), transform var(--transition);
+      }
+
+      .sub-btn:hover {
+        background: #357ab8;
+        transform: translateY(-2px);
+      }
+
+      /* 8. Confirmation Message */
+      .msg {
+        position: fixed;
+        bottom: -200px;
+        right: 1rem;
+        width: 320px;
+        background: var(--surface);
+        border-radius: var(--radius) var(--radius) 0 0;
+        box-shadow: var(--shadow-strong);
+        transition: bottom var(--transition);
+        overflow: hidden;
+      }
+
+      .msg.active {
+        bottom: 1rem;
+      }
+
+      .msg p {
+        padding: 1rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .msg button {
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        background: var(--bg-page);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background var(--transition);
+      }
+
+      .msg button:hover {
+        background: var(--border);
+      }
+    </style>
+    <title>Admin page</title>
+  </head>
+  <body>
+    <header class="">
+      <h1>AdminPage | صفحه مدیر</h1>
+    </header>
+    <main>
+      <section>
+        <div class="selector">
+          <h3>لطفا بخش مورد نظر را انتخاب کنید</h3>
+          <div class="actions-set">
+            <button class="first-action" id="firstAction">انتخاب مورد</button>
+            <div class="actions" id="actions">
+              <div data-admin-mode="addData">اضافه کردن</div>
+              <div data-admin-mode="editData">ویرایش کردن</div>
+              <div data-admin-mode="deleteData">حذف کردن <input type="number" id="delId" /></div>
+            </div>
+          </div>
+          <p>توجه! برای حذف کردن محصول مورد نظر، به شماره محصول (id) مورد نیاز است</p>
+        </div>
+        <div class="form">
+          <div>
+            <h3>اطلاعات مورد نظر را وارد کنید</h3>
+            <div class="id">
+              <label for="p_id">کد محصول</label>
+              <input type="number" id="p_id" />
+            </div>
+            <div class="img">
+              <label for="p_img">لینک تصویر</label>
+              <input type="text" id="p_img" />
+            </div>
+            <div class="title">
+              <label for="p_title">نام محصول</label>
+              <input type="text" id="p_title" />
+            </div>
+            <div class="desc">
+              <label for="p_desc">توضیحات محصول</label>
+              <textarea id="p_desc"></textarea>
+            </div>
+            <div class="price">
+              <label for="p_price">قیمت محصول</label>
+              <input type="number" id="p_price" />
+            </div>
+            <div class="sale">
+              <label for="p_sale">تخفیف محصول</label>
+              <input type="number" id="p_sale" />
+            </div>
+            <div class="cate">
+              <label for="p_cate">دسته بندی محصول</label>
+              <input type="text" id="p_cate" />
+            </div>
+            <button class="sub-btn">ثبت</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="msg">
+      <div>
+        <p>عملیات مورد نظر انجام شود؟</p>
+      </div>
+      <div>
+        <button data-progress="true">بله</button>
+        <button data-progress="false">خیر</button>
+      </div>
+    </div>
+
+    <script src="connection.js"></script>
+  </body>
+</html>
