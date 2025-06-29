@@ -1,6 +1,6 @@
 async function getData() {
   try {
-    let res = await fetch("https://67964d45bedc5d43a6c4db00.mockapi.io/api/db1/datand", {
+    let res = await fetch("https://67964d45bedc5d43a6c4db00.mockapi.io/api/db1/data", {
       method: "GET",
     });
     if (res.status === 200) {
