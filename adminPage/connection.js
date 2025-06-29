@@ -143,12 +143,12 @@ msgBox.addEventListener("click", async (e) => {
   if (e.target.dataset.progress === "true") {
     const item = {
       id: +inputs.id.value,
-      p_img: inputs.img.value,
-      p_title: inputs.title.value,
-      p_desc: inputs.desc.value,
-      p_price: +inputs.price.value,
-      p_sale: +inputs.sale.value,
-      p_cate: inputs.cate.value,
+      img_url: inputs.img.value,
+      title: inputs.title.value,
+      desc: inputs.desc.value,
+      price: +inputs.price.value,
+      sale: +inputs.sale.value,
+      cate: inputs.cate.value,
     };
     const delId = +inputs.delId.value;
     await syncData(item, delId);
