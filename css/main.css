@@ -182,3 +182,6 @@ header nav:last-of-type .active i {
     border-radius: 2rem !important;
   }
 }
+#home-categories > * {
+  height: 100px;
+}
