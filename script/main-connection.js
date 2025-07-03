@@ -34,7 +34,7 @@ async function getData() {
         htmlb += `
     <div class="${isFullWidth ? "col-12 col-md-4" : "col-6 col-md-4"}">
       <div class="d-flex align-items-center justify-content-between bg-slate-300 rounded-5 p-2">
-        <div class="flex-grow-1 txt-4 txt-md-3">${cat.faName}</div>
+        <div class="flex-grow-1 txt-5 txt-md-3">${cat.faName}</div>
         <div class="ratio ratio-1x1 overflow-hidden rounded-5 ms-2" style="max-width:120px;">
           <img
             src="${cat.thumbnail}"
