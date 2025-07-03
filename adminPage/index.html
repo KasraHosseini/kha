@@ -212,7 +212,8 @@
       }
 
       /* 7. Submit Button */
-      .sub-btn , input[type="reset"] {
+      .sub-btn,
+      input[type="reset"] {
         margin-top: 1rem;
         padding: 0.75rem;
         font-size: 1rem;
@@ -232,7 +233,9 @@
         background: #357ab8;
         transform: translateY(-2px);
       }
-
+      .first-action .delId {
+        background-color: #2c3e50;
+      }
       /* 8. Confirmation Message */
       .msg {
         position: fixed;
@@ -285,7 +288,7 @@
             <div class="actions" id="actions">
               <div data-admin-mode="addData">اضافه کردن</div>
               <div data-admin-mode="editData">ویرایش کردن</div>
-              <div data-admin-mode="deleteData">حذف کردن <input type="number" id="delId" /></div>
+              <div data-admin-mode="deleteData">حذف کردن</div>
             </div>
           </div>
           <p>توجه! برای حذف کردن محصول مورد نظر، به شماره محصول (id) مورد نیاز است</p>
@@ -326,7 +329,7 @@
               <input type="text" id="p_cate" />
             </div>
             <button class="sub-btn">ثبت</button>
-            <input type="reset" value="خالی کردن">
+            <input type="reset" value="خالی کردن" />
           </div>
         </form>
       </section>
