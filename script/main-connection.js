@@ -39,7 +39,7 @@ async function getData() {
           <img
             src="${cat.thumbnail}"
             alt="${cat.enName}"
-            class="img-fluid w-100 h-100 object-fit-cover"
+            class="img-fluid w-100 h-100 object-fit-cover bg-overly"
             loading="lazy"
           >
         </div>
