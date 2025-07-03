@@ -211,7 +211,7 @@
       }
 
       /* 7. Submit Button */
-      .sub-btn {
+      .sub-btn , input[type="reset"] {
         margin-top: 1rem;
         padding: 0.75rem;
         font-size: 1rem;
@@ -222,7 +222,11 @@
         cursor: pointer;
         transition: background var(--transition), transform var(--transition);
       }
-
+      input[type="reset"] {
+        border: var(--primary) solid 1px;
+        background-color: var(--surface);
+        color: var(--primary);
+      }
       .sub-btn:hover {
         background: #357ab8;
         transform: translateY(-2px);
@@ -285,7 +289,7 @@
           </div>
           <p>توجه! برای حذف کردن محصول مورد نظر، به شماره محصول (id) مورد نیاز است</p>
         </div>
-        <div class="form">
+        <form class="form">
           <div>
             <h3>اطلاعات مورد نظر را وارد کنید</h3>
             <div class="id">
@@ -317,8 +321,9 @@
               <input type="text" id="p_cate" />
             </div>
             <button class="sub-btn">ثبت</button>
+            <input type="reset" value="خالی کردن">
           </div>
-        </div>
+        </form>
       </section>
     </main>
     <div class="msg">

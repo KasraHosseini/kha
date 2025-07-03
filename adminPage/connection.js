@@ -95,15 +95,13 @@
 // connection.js
 
 const API = "https://67964d45bedc5d43a6c4db00.mockapi.io/api/db1/data/1";
-let mode = ""; // "addData" | "editData" | "deleteData"
+let mode = "";
 
-// grab elements
 const msgBox = document.querySelector(".msg");
 const firstBtn = document.querySelector("#firstAction");
 const actions = document.querySelector("#actions");
 const submitBtn = document.querySelector(".sub-btn");
 
-// inputs map
 const inputs = {
   id: document.querySelector("#p_id"),
   img: document.querySelector("#p_img"),
@@ -116,26 +114,23 @@ const inputs = {
 };
 
 firstBtn.addEventListener("click", (e) => {
-  // اگر به input عددی کلیک شد، منو رو باز نکن
   if (e.target.closest("input[type=number]")) return;
   actions.classList.toggle("open");
 });
 
-// pick mode
 actions.addEventListener("click", (e) => {
   const m = e.target.dataset.adminMode;
   if (!m) return;
   mode = m;
   firstBtn.innerHTML = e.target.innerHTML.trim();
-  actions.classList.remove("open"); // منو بسته میشه
+  actions.classList.remove("open");
 });
 
-// show confirmation
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   msgBox.style.cssText = "bottom:0; box-shadow:0 0 50px rgba(0,0,0,0.3);";
 });
 
-// handle confirmation
 msgBox.addEventListener("click", async (e) => {
   if (!e.target.matches("button[data-progress]")) return;
   msgBox.style.cssText = "bottom:-138px; box-shadow:none;";
@@ -155,16 +150,13 @@ msgBox.addEventListener("click", async (e) => {
   }
 });
 
-// GET → mutate → PUT
 async function syncData(item, delId) {
   try {
-    // 1) fetch existing
     const res = await fetch(API);
     if (!res.ok) throw new Error(`GET ${res.status}`);
     const json = await res.json();
     let list = json.db.product.product;
 
-    // 2) modify
     switch (mode) {
       case "addData":
         list = [item, ...list];
@@ -180,7 +172,6 @@ async function syncData(item, delId) {
         return;
     }
 
-    // 3) push back
     json.db.product.product = list;
     const put = await fetch(API, {
       method: "PUT",
@@ -193,44 +184,3 @@ async function syncData(item, delId) {
     console.error(err);
   }
 }
-// // connection.js (اصلاح‌شده)
-
-// // grab elements
-// const msgBox    = document.querySelector(".msg");
-// const firstBtn  = document.querySelector("#firstAction");
-// const actions   = document.querySelector("#actions");
-// const submitBtn = document.querySelector(".sub-btn");
-
-// // روی کلیک اول کلیک می‌کنیم تا منو باز/بسته بشه
-// firstBtn.addEventListener("click", e => {
-//   // اگر به input عددی کلیک شد، منو رو باز نکن
-//   if (e.target.closest("input[type=number]")) return;
-//   actions.classList.toggle("open");
-// });
-
-// // بعد از انتخاب گزینه هم منو رو ببند
-// actions.addEventListener("click", e => {
-//   const m = e.target.dataset.adminMode;
-//   if (!m) return;
-//   mode = m;
-//   firstBtn.textContent = e.target.textContent.trim();
-//   actions.classList.remove("open"); // منو بسته میشه
-// });
-
-// // برای پیام تأیید هم به جای تغییر bottom از کلاس active استفاده کنید
-// submitBtn.addEventListener("click", () => {
-//   msgBox.classList.add("active");
-// });
-
-// // کلیک روی بله/خیر
-// msgBox.addEventListener("click", async e => {
-//   if (!e.target.matches("button[data-progress]")) return;
-
-//   // مخفی‌شدن
-//   msgBox.classList.remove("active");
-
-//   if (e.target.dataset.progress === "true") {
-//     // جمع‌آوری و ارسال داده…
-//     // await syncData(...)
-//   }
-// });
