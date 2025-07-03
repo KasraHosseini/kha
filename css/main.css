@@ -184,4 +184,5 @@ header nav:last-of-type .active i {
 }
 #home-categories > * {
   max-height: 100px;
+  min-height: 100px;
 }
