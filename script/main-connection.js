@@ -154,7 +154,7 @@ function productTab(target) {
       <div class="bg-glass w-100 h-100 rounded-3 z-2">
         <div class="p-2 p-md-3 col-10 col-md-9 h-100 overflow-auto center-fixed position-absolute rounded-5 bg-gray-50">
           <button class="btn-close- text-slate-400 bg-transparent fw-bold border-0">بستن</button>
-          <div class="row gap-2 gap-lg-0 align-items-center flex-column flex-lg-row-reverse">
+          <div class="row gap-2 gap-lg-0 align-items-start flex-column flex-lg-row-reverse">
             <div class="col-lg-6 overflow-hidden rounded-5">
               <img src="${elem.children[0].children[0].src}" loading="lazy" class="w-100 object-fit-cover rounded-5 bg-overly" alt=""/>
             </div>
