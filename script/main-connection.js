@@ -1,7 +1,7 @@
 async function getData() {
   try {
-    // let res = await fetch("../db.json", {
-    let res = await fetch("https://67964d45bedc5d43a6c4db00.mockapi.io/api/db1/data", {
+    let res = await fetch("../db.json", {
+    // let res = await fetch("https://67964d45bedc5d43a6c4db00.mockapi.io/api/db1/data", {
       method: "GET",
     });
     if (res.status === 200) {
@@ -32,16 +32,11 @@ async function getData() {
         const isFullWidth = (i + 1) % 3 === 0;
 
         htmlb += `
-    <div class="${isFullWidth ? "col-12 col-md-4" : "col-6 col-md-4"}">
-      <div class="d-flex align-items-center justify-content-between bg-slate-300 rounded-5 p-2">
-        <div class="flex-grow-1 txt-6 txt-md-4">${cat.faName}</div>
-        <div class="ratio ratio-1x1 overflow-hidden rounded-5 ms-2" style="max-width:120px;">
-          <img
-            src="${cat.thumbnail}"
-            alt="${cat.enName}"
-            class="img-fluid w-100 h-100 object-fit-cover bg-overly"
-            loading="lazy"
-          >
+    <div class="${isFullWidth ? "col-12 col-md-4" : "col-6 col-md-4"} px-1">
+      <div class="d-flex align-items-center justify-content-between bg-slate-300 rounded-5 p-1 h-100">
+        <div class="txt-5 txt-md-4">${cat.faName}</div>
+        <div class="ratio h-100 col-4 ratio-1x1 overflow-hidden rounded-5">
+          <img src="${cat.thumbnail}" alt="${cat.faName}" class="object-fit-cover"/>
         </div>
       </div>
     </div>

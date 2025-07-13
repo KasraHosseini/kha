@@ -183,6 +183,10 @@ header nav:last-of-type .active i {
   }
 }
 #home-categories > * {
-  max-height: 150px;
-  height: 150px !important;
+  height: 100px;
+  max-height: 100px;
+}
+#home-categories .col-4 {
+	flex: 0 0 auto;
+	width: 33.33333333%;
 }
