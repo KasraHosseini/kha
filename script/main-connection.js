@@ -36,7 +36,7 @@ async function getData() {
       <div class="d-flex align-items-center justify-content-between bg-slate-300 rounded-5 p-1 h-100">
         <div class="txt-5 txt-md-4">${cat.faName}</div>
         <div class="ratio h-100 col-4 ratio-1x1 overflow-hidden rounded-5">
-          <img src="${cat.thumbnail}" alt="${cat.faName}" class="object-fit-cover"/>
+          <img src="${cat.thumbnail}" alt="${cat.faName}" class="object-fit-cover bg-overly"/>
         </div>
       </div>
     </div>
